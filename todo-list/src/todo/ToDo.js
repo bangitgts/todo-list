@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import './todo.css'
 class ToDo extends Component{
-  render()
+    constructor(props){
+        super(props);
+        this.onItemClick = this.onItemClick.bind(this); 
+    }
+    onItemClick(){
+        console.log(this.props.item);
+    }
+    render()
     {
         const {item} = this.props;
         let className = 'TodoItem';
@@ -9,7 +16,7 @@ class ToDo extends Component{
             className += " TodoItem-complete";
         }
         return(
-            <div className={className}>
+            <div onClick={this.onItemClick} className={className}>
                 <p>{this.props.item.title}</p>
             </div>
         )
