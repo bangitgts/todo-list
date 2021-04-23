@@ -1,35 +1,37 @@
 import './App.css';
 import { Component } from 'react';
-import ToDo from './todo/ToDo';
-
+import AddJob from './component/AddJob'
+import ShowJob from './component/ShowJob';
+import SortJob from './component/SortJob';
 class App extends Component{
-  constructor(){
-    super();
-    this.todoItems = [
-      {title:"Do your house Work",isComplete: true},
-      {title:"Do your code"},
-      {title:"Play game"}
-    ];
+  constructor(props){
+    super(props);
+    this.state ={
+          product:[
+            {nameJob: 'abc',
+            sltGender: 1}
+          ]
+        }
+   // this.onReceivenamejob = this.onReceivenamejob.bind(this);
+   }
+ 
+  onReceivenamejob =  (prams) => {
+    console.log(prams)
+    const products = this.state.product;
+    products.push(prams)
+    this.setState(products);
+    console.log(this.state);
   }
   render(){
-    if(this.todoItems.length>0){
-      return(
-        <div className="App">
-          {
-            this.todoItems.map((item,index) => 
-            <ToDo key={index} item= {item} />)
-          }
-        </div>
+    return(
+      <div className="container">
+         <div className="row">
+          <AddJob onGetdata={this.onReceivenamejob} />
+          <SortJob/>
+          <ShowJob onShow={this.state.product}/>
+         </div>
+      </div>
       )
-    }
-    else{
-      return(
-        <div className="App">
-        NotthingHere
-        </div>
-      )
-    }
-   
   }
 
 }
