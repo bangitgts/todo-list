@@ -1,5 +1,4 @@
 import { Component } from "react";
-import classNames from 'classnames/bind';
 class ShowJob extends Component{
     render(){
       

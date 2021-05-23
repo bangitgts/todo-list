@@ -36,14 +36,14 @@ class AddJob extends Component{
                                 <input type="text" className="form-control"  name="nameJob" onChange={this.handleChange} />
                             </div>
                             <label>Trạng Thái :</label>
-                            <select value={this.state.sltGender} name='sltGender' onChange={this.handleChange} className="form-control" required="required">
+                            <select value={this.state.sltGender} name='sltGender' onChange={this.handleChange}  className="form-control" required="required">
                                 <option value={'1'} selected={this.state === '1'}>Kích Hoạt</option>
                                 <option value={'0'} selected={this.state === '0'}>Ẩn</option>
                             </select>
                             <br/>
                             <div className="text-center">
                                 <button onChange={this.handleChange} type="submit" value="submit" className="btn btn-warning">Thêm</button>&nbsp;
-                                <button type="submit" className="btn btn-danger">Hủy Bỏ</button>
+                                <button type="reset" className="btn btn-danger">Làm lại </button>
                             </div>
                         </form>
                     </div>
